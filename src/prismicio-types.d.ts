@@ -61,6 +61,7 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| EventListSlice
 	| HeroSlice
 	| QuoteSlice
 	| TextSlice
@@ -184,6 +185,104 @@ export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocu
 >;
 
 export type AllDocumentTypes = NavigationDocument | PageDocument | SettingsDocument;
+
+/**
+ * Item in *EventList → Default → Primary → Events*
+ */
+export interface EventListSliceDefaultPrimaryEventsItem {
+	/**
+	 * Title field in *EventList → Default → Primary → Events*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: event_list.default.primary.events[].title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
+	 * Image field in *EventList → Default → Primary → Events*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: event_list.default.primary.events[].image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+
+	/**
+	 * Link field in *EventList → Default → Primary → Events*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: event_list.default.primary.events[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+
+	/**
+	 * Date field in *EventList → Default → Primary → Events*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: event_list.default.primary.events[].date
+	 * - **Documentation**: https://prismic.io/docs/field#date
+	 */
+	date: prismic.DateField;
+}
+
+/**
+ * Primary content in *EventList → Default → Primary*
+ */
+export interface EventListSliceDefaultPrimary {
+	/**
+	 * Show Past Events field in *EventList → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: event_list.default.primary.show_past_events
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	show_past_events: prismic.BooleanField;
+
+	/**
+	 * Events field in *EventList → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: event_list.default.primary.events[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	events: prismic.GroupField<Simplify<EventListSliceDefaultPrimaryEventsItem>>;
+}
+
+/**
+ * Default variation for EventList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventListSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<EventListSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *EventList*
+ */
+type EventListSliceVariation = EventListSliceDefault;
+
+/**
+ * EventList Shared Slice
+ *
+ * - **API ID**: `event_list`
+ * - **Description**: EventList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventListSlice = prismic.SharedSlice<'event_list', EventListSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -678,6 +777,11 @@ declare module '@prismicio/client' {
 			SettingsDocument,
 			SettingsDocumentData,
 			AllDocumentTypes,
+			EventListSlice,
+			EventListSliceDefaultPrimaryEventsItem,
+			EventListSliceDefaultPrimary,
+			EventListSliceVariation,
+			EventListSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
