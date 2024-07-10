@@ -1,8 +1,6 @@
 <script>
 	import { PrismicRichText } from '@prismicio/svelte';
-
 	export let events, title;
-	console.log('events.item', events[0]);
 </script>
 
 <div class:hidden={events.length < 1} class="my-12 mx-4">
