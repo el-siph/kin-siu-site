@@ -650,6 +650,17 @@ export type TextSlice = prismic.SharedSlice<'text', TextSliceVariation>;
  */
 export interface TextWithImageSliceDefaultPrimary {
 	/**
+	 * Flip Orientation field in *TextWithImage → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: text_with_image.default.primary.flip_orientation
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	flip_orientation: prismic.BooleanField;
+
+	/**
 	 * Text field in *TextWithImage → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
@@ -687,6 +698,17 @@ export type TextWithImageSliceDefault = prismic.SharedSliceVariation<
  * Primary content in *TextWithImage → With Button → Primary*
  */
 export interface TextWithImageSliceWithButtonPrimary {
+	/**
+	 * Flip Orientation field in *TextWithImage → With Button → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: text_with_image.withButton.primary.flip_orientation
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	flip_orientation: prismic.BooleanField;
+
 	/**
 	 * Text field in *TextWithImage → With Button → Primary*
 	 *
