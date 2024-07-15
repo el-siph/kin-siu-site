@@ -35,6 +35,9 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"showcase_list": {
+							"type": "SharedSlice"
+						},
 						"event_list": {
 							"type": "SharedSlice"
 						},

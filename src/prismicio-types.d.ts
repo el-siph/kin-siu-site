@@ -61,6 +61,7 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| ShowcaseListSlice
 	| EventListSlice
 	| HeroSlice
 	| QuoteSlice
@@ -576,6 +577,95 @@ type QuoteSliceVariation = QuoteSliceDefault;
 export type QuoteSlice = prismic.SharedSlice<'quote', QuoteSliceVariation>;
 
 /**
+ * Item in *ShowcaseList → Default → Primary → ShowcaseListItem*
+ */
+export interface ShowcaseListSliceDefaultPrimaryShowcaselistitemItem {
+	/**
+	 * Title field in *ShowcaseList → Default → Primary → ShowcaseListItem*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: showcase_list.default.primary.showcaselistitem[].title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
+	 * Embed field in *ShowcaseList → Default → Primary → ShowcaseListItem*
+	 *
+	 * - **Field Type**: Embed
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: showcase_list.default.primary.showcaselistitem[].embed
+	 * - **Documentation**: https://prismic.io/docs/field#embed
+	 */
+	embed: prismic.EmbedField;
+
+	/**
+	 * Description field in *ShowcaseList → Default → Primary → ShowcaseListItem*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: (optional)
+	 * - **API ID Path**: showcase_list.default.primary.showcaselistitem[].description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+
+	/**
+	 * link field in *ShowcaseList → Default → Primary → ShowcaseListItem*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: showcase_list.default.primary.showcaselistitem[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *ShowcaseList → Default → Primary*
+ */
+export interface ShowcaseListSliceDefaultPrimary {
+	/**
+	 * ShowcaseListItem field in *ShowcaseList → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: showcase_list.default.primary.showcaselistitem[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	showcaselistitem: prismic.GroupField<
+		Simplify<ShowcaseListSliceDefaultPrimaryShowcaselistitemItem>
+	>;
+}
+
+/**
+ * Default variation for ShowcaseList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseListSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ShowcaseListSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ShowcaseList*
+ */
+type ShowcaseListSliceVariation = ShowcaseListSliceDefault;
+
+/**
+ * ShowcaseList Shared Slice
+ *
+ * - **API ID**: `showcase_list`
+ * - **Description**: ShowcaseList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseListSlice = prismic.SharedSlice<'showcase_list', ShowcaseListSliceVariation>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -823,6 +913,11 @@ declare module '@prismicio/client' {
 			QuoteSliceDefaultPrimary,
 			QuoteSliceVariation,
 			QuoteSliceDefault,
+			ShowcaseListSlice,
+			ShowcaseListSliceDefaultPrimaryShowcaselistitemItem,
+			ShowcaseListSliceDefaultPrimary,
+			ShowcaseListSliceVariation,
+			ShowcaseListSliceDefault,
 			TextSlice,
 			TextSliceDefaultPrimary,
 			TextSliceTwoColumnsPrimary,

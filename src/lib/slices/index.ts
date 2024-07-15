@@ -5,6 +5,7 @@ import Hero from './Hero/index.svelte';
 import Image from './Image/index.svelte';
 import ImageCards from './ImageCards/index.svelte';
 import Quote from './Quote/index.svelte';
+import ShowcaseList from './ShowcaseList/index.svelte';
 import Text from './Text/index.svelte';
 import TextWithImage from './TextWithImage/index.svelte';
 
@@ -14,6 +15,7 @@ export const components = {
 	image: Image,
 	image_cards: ImageCards,
 	quote: Quote,
+	showcase_list: ShowcaseList,
 	text: Text,
 	text_with_image: TextWithImage
 };
