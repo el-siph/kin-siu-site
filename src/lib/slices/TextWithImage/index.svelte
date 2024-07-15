@@ -6,8 +6,6 @@
 	import PrismicRichText from '$lib/components/PrismicRichText.svelte';
 
 	export let slice: Content.TextWithImageSlice;
-
-	console.log('slice', slice.primary.buttonLink);
 </script>
 
 <Bounded
