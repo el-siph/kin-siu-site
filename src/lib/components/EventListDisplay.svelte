@@ -8,21 +8,25 @@
 		{title}
 	</h1>
 	{#each events as item}
-		<div class="grid grid-cols-12 gap-12 m-2">
+		<div class="grid grid-cols-12 gap-12 mb-8">
 			<div class="col-span-4">
 				<div
 					class="event-list-img w-auto h-48"
 					style="background-image: url('{item.image.url}');"
 				/>
 			</div>
-			<div class="col-span-7">
-				<PrismicRichText field={item.title} />
-				<p>{new Date(item.date).toLocaleDateString()}</p>
-				<a
-					class="px-2 py-1 bg-blue-500 hover:bg-blue-400 text-white"
-					href={item.link.url}
-					target={item.link.target}>Event Details</a
-				>
+			<div class="col-span-7 flex flex-col">
+				<section>
+					<PrismicRichText field={item.title} />
+					<p>{new Date(item.date).toLocaleDateString()}</p>
+				</section>
+				<section class="mt-10">
+					<a
+						class="px-2 py-1 bg-blue-500 hover:bg-blue-400 text-white"
+						href={item.link.url}
+						target={item.link.target}>Event Details</a
+					>
+				</section>
 			</div>
 		</div>
 	{/each}
