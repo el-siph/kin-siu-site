@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
 	import { PrismicLink, PrismicText } from '@prismicio/svelte';
+	import { page } from '$app/stores';
 
 	import Bounded from './Bounded.svelte';
 
@@ -16,7 +17,10 @@
 		<nav>
 			<ul class="flex flex-wrap gap-6 md:gap-10">
 				{#each navigation.data?.links as item}
-					<li class="font-semibold tracking-tight text-slate-800">
+					<li
+						class="font-semibold tracking-tight text-slate-800"
+						class:activeLink={$page.url.pathname === item.link.url}
+					>
 						<PrismicLink field={item.link}>
 							<PrismicText field={item.label} />
 						</PrismicLink>
