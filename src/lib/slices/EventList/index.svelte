@@ -6,7 +6,9 @@
 
 	const eventList = slice.primary.events.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 	const pastEvents = eventList.filter((event) => Date.parse(event.date) < Date.now());
-	const upcomingEvents = eventList.filter((event) => Date.parse(event.date) >= Date.now());
+	const upcomingEvents = eventList
+		.filter((event) => Date.parse(event.date) >= Date.now())
+		.reverse();
 </script>
 
 <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
