@@ -18,7 +18,11 @@
 			<div class="col-span-7 flex flex-col">
 				<section>
 					<PrismicRichText field={item.title} />
-					<p>{new Date(item.date).toLocaleDateString()}</p>
+					<p>
+						{new Date(item.date).getMonth() + 1}/{new Date(item.date).getDate()}/{new Date(
+							item.date
+						).getFullYear()}
+					</p>
 				</section>
 				<section class="mt-10">
 					<a
