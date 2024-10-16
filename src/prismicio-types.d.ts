@@ -230,6 +230,16 @@ export interface EventListSliceDefaultPrimaryEventsItem {
 	 * - **Documentation**: https://prismic.io/docs/field#date
 	 */
 	date: prismic.DateField;
+
+	/**
+	 * Description field in *EventList → Default → Primary → Events*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: event_list.default.primary.events[].description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
 }
 
 /**

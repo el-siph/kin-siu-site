@@ -18,6 +18,7 @@
 			<div class="col-span-7 flex flex-col">
 				<section>
 					<PrismicRichText field={item.title} />
+					<PrismicRichText field={item.description} />
 					<p>
 						{new Date(item.date).getMonth() + 1}/{new Date(item.date).getDate()}/{new Date(
 							item.date

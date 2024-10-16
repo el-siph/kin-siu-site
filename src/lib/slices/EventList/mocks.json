@@ -30,7 +30,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
@@ -48,6 +47,9 @@
 										},
 										"background": "transparent"
 									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							],
@@ -67,6 +69,20 @@
 									"__TYPE__": "FieldContent",
 									"type": "Date",
 									"value": "2014-05-25"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Officia quis non nostrud."
+											}
+										}
+									]
 								}
 							]
 						]
